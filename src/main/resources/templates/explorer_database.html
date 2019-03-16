@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Explorer Database</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{'css/style.css'}">
+</head>
+<body>
+    <div class="title-pane">
+        <div class="title">
+            <h1>Museum's</h1>
+            <img id="img-logo" src="../static/images/icon_Database_50px.png" th:src="@{'images/icon_Database_50px.png'}" alt="">
+            <h2>Database</h2>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="nav-buttons">
+            <a class="nav-button" id="btn_coins" href="">Monedas</a>
+            <a class="nav-button" id="btn_models" href="">Modelos</a>
+            <a class="nav-button" id="btn_providers" href="">Proveedores</a>
+        </div>
+        <div class="nav-add">
+            <a class="nav-button" id="btn_add" href="">
+                <img src="../static/images/iconadd.png" th:src="@{'images/iconadd.png'}" alt="">
+            </a>
+            <div class="dropdown-content">
+                <a href="#">Nueva Moneda</a>
+                <a href="#">Nuevo Modelo</a>
+                <a href="#">Nuevo Proveedor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="data">
+        <div th:if="${selection == 'coins'}">
+            <div class="title-dark">
+                <h1><span th:text="'Monedas'"></span></h1>
+            </div>
+            <div class="data-grid">
+                <div class="data-item" th:each="coin : ${coins} ">
+                    <div id="img-coins"></div>
+                    <ul>
+                        <li>
+                            <span class="data-item-label" th:text="'Id:'"></span>
+                            <span class="data-item-valor" th:text="${coin.id}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Modelo:'"></span>
+                            <span class="data-item-valor" th:text="${coin.type.getValue()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Año:'"></span>
+                            <span class="data-item-valor" th:text="${coin.year}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Lugar de acuñación:'"></span>
+                            <span class="data-item-valor" th:text="${coin.coinageCity}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Fecha de Adquisición:'"></span>
+                            <span class="data-item-valor"th:text="${coin.acquisitionDate}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Estado:'"></span>
+                            <span class="data-item-valor" th:text="${coin.status}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Proveedor:'"></span>
+                            <span class="data-item-valor" th:text="${coin.provider.getName()}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${selection == 'models'}">
+            <div class="title-dark">
+                <h1><span th:text="'Modelos'"></span></h1>
+            </div>
+            <div class="data-grid">
+                <div class="data-item" th:each="type : ${types} ">
+                    <div id="img-models"></div>
+                    <ul>
+                        <li>
+                            <span class="data-item-label" th:text="'Id:'"></span>
+                            <span class="data-item-valor" th:text="${type.getId()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Valor:'"></span>
+                            <span class="data-item-valor" th:text="${type.getValue()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Unidad Monetaria:'"></span>
+                            <span class="data-item-valor" th:text="${type.getMonetaryUnit()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Diámetro:'"></span>
+                            <span class="data-item-valor" th:text="${type.getDiameter()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Metals:'"></span>
+                            <span class="data-item-valor" th:text="${type.getMetals()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Descripción:'"></span>
+                            <span class="data-item-valor" th:text="${type.getDescription()}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${selection == 'providers'}">
+            <div class="title-dark">
+                <h1><span th:text="'Providers'"></span></h1>
+            </div>
+            <div class="data-grid">
+                <div class="data-item" th:each="provider : ${providers} ">
+                    <div id="img-providers"></div>
+                    <ul>
+                        <li>
+                            <span class="data-item-label" th:text="'DNI:'"></span>
+                            <span class="data-item-valor" th:text="${provider.getDni()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Nombre:'"></span>
+                            <span class="data-item-valor" th:text="${provider.getName()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'E-mail:'"></span>
+                            <span class="data-item-valor" th:text="${provider.getEmail()}"></span>
+                        </li>
+                        <li>
+                            <span class="data-item-label" th:text="'Teléfono:'"></span>
+                            <span class="data-item-valor" th:text="${provider.getPhone()}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>&copy;Include Services 2019</footer>
+</body>
+</html>
