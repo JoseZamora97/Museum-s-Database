@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:title="'New' + ${selection}"></title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{'css/style.css'}">
+</head>
+<body>
+<div class="title-pane">
+    <div class="title">
+        <h1>Museum's</h1>
+        <img id="img-logo" src="../static/images/icon_Database_50px.png" th:src="@{'images/icon_Database_50px.png'}" alt="">
+        <h2>Database</h2>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="nav-buttons">
+        <a class="nav-button" id="btn_coins" href="/coins">Monedas</a>
+        <a class="nav-button" id="btn_models" href="/models">Modelos</a>
+        <a class="nav-button" id="btn_providers" href="/providers">Proveedores</a>
+    </div>
+    <div class="nav-add">
+        <a class="nav-button" id="btn_add" href="">
+            <img src="../static/images/iconadd.png" th:src="@{'images/iconadd.png'}" alt="">
+        </a>
+        <div class="dropdown-content">
+            <a href="/new_coin">Nueva Moneda</a>
+            <a href="/new_model">Nuevo Modelo</a>
+            <a href="/new_provider">Nuevo Proveedor</a>
+        </div>
+    </div>
+</div>
+
+<div class="data">
+    <div th:if="${selection == 'providers'}">
+        <div class="title-dark">
+            <h1 th:text="'Nuevo Proveedor'"></h1>
+        </div>
+        <div class="data-form">
+            <form action="/save_provider" method="post">
+                <div class="form-entry">
+                    <p th:text="'DNI:'"></p>
+                    <label>
+                        <input type="text" name="in_dni"/>
+                    </label>
+                </div>
+                <div class="form-entry">
+                    <p th:text="'Nombre:'"></p>
+                    <label>
+                        <input type="text" name="in_nombre"/>
+                    </label>
+                </div >
+                <div class="form-entry">
+                    <p th:text="'E-mail:'"></p>
+                    <label>
+                        <input type="text" name="in_email"/>
+                    </label>
+                </div>
+                <div class="form-entry">
+                    <p th:text="'Teléfono:'"></p>
+                    <label>
+                        <input type="text" name="in_telefono"/>
+                    </label>
+                </div>
+                <div class="form-button">
+                    <button class="btn-crear" type="submit" value="provider">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${selection == 'coins'}">
+        <div class="title-dark">
+            <h1 th:text="'Nueva Moneda'"></h1>
+        </div>
+        <div class="data-form" >
+            <form action="/save_coin" method="post">
+
+                <div class="form-entry">
+                    <p th:text="'Modelo:'"></p>
+                    <label>
+                        <input type="text" name="in_model"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Año:'"></p>
+                    <label>
+                        <input type="text" name="in_year"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Lugar de acuñación:'"></p>
+                    <label>
+                        <input type="text" name="in_city"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Fecha de Adquisición:'"></p>
+                    <label>
+                        <input type="text" name="in_adquisition"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Estado:'"></p>
+                    <label>
+                        <input type="text" name="in_status"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Proveedor:'"></p>
+                    <label>
+                        <input type="text" name="in_provider"/>
+                    </label>
+                </div>
+
+                <div class="form-button">
+                    <button class="btn-crear" type="submit" value="provider">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${selection == 'types'}">
+        <div class="title-dark">
+            <h1 th:text="'Nuevo Modelo'"></h1>
+        </div>
+        <div class="data-form" >
+            <form action="/save_model" method="post">
+
+                <div class="form-entry">
+                    <p th:text="'Valor'"></p>
+                    <label>
+                        <input type="text" name="in_value"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Unidad Monetaria'"></p>
+                    <label>
+                        <input type="text" name="in_coinageUnit"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Diámetro'"></p>
+                    <label>
+                        <input type="text" name="in_diameter"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Metals'"></p>
+                    <label>
+                        <input type="text" name="in_metals"/>
+                    </label>
+                </div>
+
+                <div class="form-entry">
+                    <p th:text="'Descripción'"></p>
+                    <label>
+                    <textarea name="in_description" id="text-area-descripcion" cols="50"
+                              rows="8"></textarea>
+                    </label>
+                </div>
+
+                <div class="form-button">
+                    <button class="btn-crear" type="submit" value="model">Crear</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<footer>&copy; Include Services 2019</footer>
+</body>
+</html>

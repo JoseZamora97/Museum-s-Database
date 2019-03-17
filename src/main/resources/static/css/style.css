@@ -6,12 +6,13 @@ font-family: 'Alfa Slab One', cursive;
 font-family: 'Saira Extra Condensed', sans-serif;
 font-family: 'Noto Sans', sans-serif;
 font-family: 'Cinzel', serif;*/
-
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans', sans-serif;
 }
 
+/* Barra de titulo */
 .title-pane{
     top: 0;
     position:fixed;
@@ -31,7 +32,6 @@ body{
     position: relative;
     top: 12px;
 }
-
 .title h2{
     display: inline-block;
     color: whitesmoke;
@@ -48,90 +48,7 @@ body{
     font-family: 'Cinzel', serif;
 }
 
-.data{
-    margin-top: 214px;
-    background: #dadada;
-    padding: 20px;
-}
-.data-grid{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 25px;
-    grid-auto-flow: row;
-}
-.data-item{
-    margin: 0 auto;
-    padding: 15px;
-    width: -moz-fit-content;
-    width: fit-content;
-    background: white;
-    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
-    -moz-transition: background-color 0.5s ease-out;
-    transition: background-color 0.5s ease-out;
-}
-.data-item h2{
-    text-align: center;
-    font-family: 'Thasadith', sans-serif;
-}
-.data-item ul{
-    list-style: none;
-    padding: 15px;
-    font-family: 'Noto Sans', sans-serif;
-}
-li {
-    width: available;
-    width: -moz-available;
-}
-.data-item-label{
-    display: inline-block;
-}
-.data-item-valor{
-    float: right;
-    display: inline-block;
-}
-.data-item:hover{
-    background-color: #04162B;
-    color: white;
-    -moz-box-shadow: 0 7px 30px -2px rgba(0,0,0,0.61);
-    box-shadow: 0 7px 30px -2px rgba(0,0,0,0.61);
-}
-#img-coins{
-    margin: 20px auto 0;
-    width: 45px;
-    height: 45px;
-    background: url("../images/icons8_Coins_45px_para_fondo_blanco.png");
-}
-.data-item:hover #img-coins{
-    background: url("../images/icons8_Coins_45px_para_fondo_azul.png");
-}
-#img-models{
-    margin: 20px auto 0;
-    width: 45px;
-    height: 45px;
-    background: url("../images/icons8_M_45px_para_fondo_blanco.png");
-}
-.data-item:hover #img-models{
-    background: url("../images/icons8_M_45px_para_fondo_azul.png");
-}
-#img-providers{
-    margin: 20px auto 0;
-    width: 45px;
-    height: 45px;
-    background: url("../images/icons8_Donate_45px_para_fondo_blanco.png");
-}
-.data-item:hover #img-providers{
-    background: url("../images/icons8_Donate_45px_para_fondo_azul.png");
-}
-
-footer{
-    padding: 10px 0;
-    background: #04162B;
-    color: whitesmoke;
-    text-align: center;
-    font-family: 'Thasadith', sans-serif;
-}
-
+/* Barra de navegacion para alternar entra las diferentes páginas */
 .nav {
     position:fixed;
     width: 100%;
@@ -149,7 +66,6 @@ footer{
     margin: 15px;
 }
 .nav-button{
-    font-family: 'Noto Sans', sans-serif;
     background: #f1f1f1;
     color: #04162B;
     text-decoration: none;
@@ -253,7 +169,6 @@ footer{
     z-index: 1;
 }
 .dropdown-content a {
-    font-family: 'Noto Sans', sans-serif;
     color: #04162B;
     padding: 12px 16px;
     text-decoration: none;
@@ -266,6 +181,144 @@ footer{
     color: #f1f1f1;
 }
 .nav-add:hover .dropdown-content {display: block;}
+
+/* Seccion que va a variar dependiendo de si estamos añadiedo,
+mostrando o editando una Moneda, Modelo o Proveedor */
+.data{
+    margin-top: 214px;
+    background: #dadada;
+    padding: 20px;
+}
+
+/* Seccion que da estilos a los formularios */
+.data-form{
+    padding: 20px;
+    margin: 0 auto;
+    background: white;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+.form-entry{
+    margin: 0 auto;
+    padding: 8px;
+    text-align: left;
+    width:fit-content;
+    width: -moz-fit-content;
+}
+.form-entry p {
+    font-size: 20px;
+    margin: 3px;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.form-entry input, textarea{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 16px;
+    padding: 2px 15px;
+    border-radius: 25px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    border: 2px solid #04162B;
+    height: 2em;
+    width: 15em;
+    transition: border-radius 0.3s ease-in;
+}
+.form-entry textarea{
+    height: 10em;
+    text-justify: newspaper;
+    padding-top: 3px ;
+}
+.form-entry input:hover, textarea:hover{
+    border-radius: 0 25px 25px 25px;
+}
+.form-entry input:focus, textarea:hover{
+    border-radius: 0 25px 25px 25px;
+}
+.form-button{
+    border-style: none;
+}
+
+/* Grid para mostrar las Monedas, Modelos o los Proveedores */
+.data-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 25px;
+    grid-auto-flow: row;
+}
+.data-item{
+    margin: 0 auto;
+    padding: 15px;
+    width: -moz-fit-content;
+    width: fit-content;
+    background: white;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    -moz-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+}
+.data-item h2{
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+}
+.data-item ul{
+    list-style: none;
+    padding: 15px;
+}
+.data-item-label{
+    display: inline-block;
+}
+.data-item-valor{
+    float: right;
+    display: inline-block;
+}
+.data-item:hover{
+    background-color: #04162B;
+    color: white;
+    -moz-box-shadow: 0 7px 30px -2px rgba(0,0,0,0.61);
+    box-shadow: 0 7px 30px -2px rgba(0,0,0,0.61);
+}
+#img-coins{
+    margin: 20px auto 0;
+    width: 45px;
+    height: 45px;
+    background: url("../images/icons8_Coins_45px_para_fondo_blanco.png");
+}
+.data-item:hover #img-coins{
+    background: url("../images/icons8_Coins_45px_para_fondo_azul.png");
+}
+#img-models{
+    margin: 20px auto 0;
+    width: 45px;
+    height: 45px;
+    background: url("../images/icons8_M_45px_para_fondo_blanco.png");
+}
+.data-item:hover #img-models{
+    background: url("../images/icons8_M_45px_para_fondo_azul.png");
+}
+#img-providers{
+    margin: 20px auto 0;
+    width: 45px;
+    height: 45px;
+    background: url("../images/icons8_Donate_45px_para_fondo_blanco.png");
+}
+.data-item:hover #img-providers{
+    background: url("../images/icons8_Donate_45px_para_fondo_azul.png");
+}
+
+/* Footer de la página web */
+footer{
+    padding: 10px 0;
+    background: #04162B;
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+}
 
 /* Media Queries */
 @media screen and (max-width: 1920px){
@@ -308,5 +361,3 @@ footer{
         grid-auto-flow: row;
     }
 }
-
-

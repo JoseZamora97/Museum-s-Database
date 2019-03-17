@@ -16,18 +16,18 @@
 
     <div class="nav">
         <div class="nav-buttons">
-            <a class="nav-button" id="btn_coins" href="">Monedas</a>
-            <a class="nav-button" id="btn_models" href="">Modelos</a>
-            <a class="nav-button" id="btn_providers" href="">Proveedores</a>
+            <a class="nav-button" id="btn_coins" href="/coins">Monedas</a>
+            <a class="nav-button" id="btn_models" href="/models">Modelos</a>
+            <a class="nav-button" id="btn_providers" href="/providers">Proveedores</a>
         </div>
         <div class="nav-add">
             <a class="nav-button" id="btn_add" href="">
                 <img src="../static/images/iconadd.png" th:src="@{'images/iconadd.png'}" alt="">
             </a>
             <div class="dropdown-content">
-                <a href="#">Nueva Moneda</a>
-                <a href="#">Nuevo Modelo</a>
-                <a href="#">Nuevo Proveedor</a>
+                <a href="/new_coin">Nueva Moneda</a>
+                <a href="/new_model">Nuevo Modelo</a>
+                <a href="/new_provider">Nuevo Proveedor</a>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="data">
         <div th:if="${selection == 'coins'}">
             <div class="title-dark">
-                <h1><span th:text="'Monedas'"></span></h1>
+                <h1 th:text="'Monedas'"></h1>
             </div>
             <div class="data-grid">
                 <div class="data-item" th:each="coin : ${coins} ">
@@ -74,9 +74,9 @@
             </div>
         </div>
 
-        <div th:if="${selection == 'models'}">
+        <div th:if="${selection == 'types'}">
             <div class="title-dark">
-                <h1><span th:text="'Modelos'"></span></h1>
+                <h1 th:text="'Modelos'"></h1>
             </div>
             <div class="data-grid">
                 <div class="data-item" th:each="type : ${types} ">
@@ -113,7 +113,7 @@
 
         <div th:if="${selection == 'providers'}">
             <div class="title-dark">
-                <h1><span th:text="'Providers'"></span></h1>
+                <h1 th:text="'Proveedores'"></h1>
             </div>
             <div class="data-grid">
                 <div class="data-item" th:each="provider : ${providers} ">
@@ -142,6 +142,6 @@
 
     </div>
 
-    <footer>&copy;Include Services 2019</footer>
+    <footer>&copy; Include Services 2019</footer>
 </body>
 </html>
