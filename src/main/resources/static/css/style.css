@@ -81,7 +81,7 @@ body{
     content: "";
     position: absolute;
     width: 82px;
-    height: 4px;
+    height: 3px;
     bottom: 20px;
     left: 24px;
     background: #04162B;
@@ -92,7 +92,7 @@ body{
     content: "";
     position: absolute;
     width: 74px;
-    height: 4px;
+    height: 3px;
     bottom: 20px;
     left: 124px;
     background: #04162B;
@@ -103,7 +103,7 @@ body{
     content: "";
     position: absolute;
     width: 100px;
-    height: 4px;
+    height: 3px;
     bottom: 20px;
     left: 220px;
     background: #04162B;
@@ -232,7 +232,7 @@ button:focus {
 .form-entry textarea{
     height: 10em;
     text-justify: newspaper;
-    padding-top: 3px ;
+    padding-top: 3px;
 }
 .form-entry input:hover, textarea:hover{
     border-radius: 0 25px 25px 25px;
@@ -241,7 +241,28 @@ button:focus {
     border-radius: 0 25px 25px 25px;
 }
 .form-button{
-    border-style: none;
+    margin:15px auto;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.btn-crear{
+    background: #f1f1f1;
+    border: none;
+    color: #04162B;
+    font-size: 20px;
+    padding: 15px 32px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 25px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    transition: 0.8s ease-in-out ;
+}
+.btn-crear:hover{
+    background: #04162B;
+    color: #f1f1f1;
+    transform: rotateX(360deg);
+    -moz-box-shadow: 0 7px 15px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 7px 15px 3px rgba(0,0,0,0.3);
 }
 
 /* Grid para mostrar las Monedas, Modelos o los Proveedores */
